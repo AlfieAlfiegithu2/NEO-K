@@ -31,97 +31,159 @@
         .font-mono {
             font-family: 'Space Grotesk', sans-serif;
         }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
     </style>
 </head>
 
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col selection:bg-stone-200">
 
-    <!-- Simple Header -->
-    <header class="py-8 px-6 md:px-12 border-b border-stone-200 bg-white/50 backdrop-blur-md fixed w-full top-0 z-50">
-        <div class="max-w-4xl mx-auto flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-2 group">
-                <img src="neok-logo.png" alt="Neo K Logo" class="w-8 h-auto mix-blend-multiply">
+    <!-- Premium Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-6 border-b border-stone-200/50 bg-white/30 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="neok-logo.png" alt="Neo K Logo" class="w-8 h-8 object-contain mix-blend-multiply">
+                <span class="font-serif text-lg tracking-tight">Neo K</span>
             </a>
             <a href="index.html"
-                class="text-xs font-mono uppercase tracking-widest text-stone-500 hover:text-stone-900 transition-colors">Back
-                to Home</a>
+                class="text-[10px] font-mono uppercase tracking-[0.2em] text-stone-500 hover:text-stone-900 transition-colors flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-arrow-left">
+                    <path d="m12 19-7-7 7-7" />
+                    <path d="M19 12H5" />
+                </svg>
+                Return to Atmosphere
+            </a>
         </div>
-    </header>
+    </nav>
 
-    <main class="flex-grow pt-32 pb-24 px-6 md:px-12">
-        <div class="max-w-3xl mx-auto">
-            <h1 class="text-4xl md:text-5xl font-serif mb-4">Contact Us</h1>
-            <p class="text-stone-500 mb-12 font-mono text-sm">We'd love to hear from you.</p>
+    <!-- Contact Content -->
+    <main class="flex-grow pt-48 pb-24 px-6 md:px-12 relative overflow-hidden">
+        <!-- Abstract Background Elements -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-stone-200/50 rounded-full blur-3xl opacity-50"></div>
+        <div class="absolute bottom-24 -left-24 w-64 h-64 bg-stone-300/30 rounded-full blur-3xl opacity-30"></div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-stone-700 leading-relaxed text-sm md:text-base">
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
 
-                <!-- Contact Info -->
-                <div class="space-y-8">
-                    <div>
-                        <h3 class="text-lg font-serif mb-2 text-stone-900">General Inquiries</h3>
-                        <a href="mailto:info@neok.com"
-                            class="text-stone-600 hover:text-stone-900 transition-colors">info@neok.com</a>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-serif mb-2 text-stone-900">Partnership</h3>
-                        <a href="mailto:partners@neok.com"
-                            class="text-stone-600 hover:text-stone-900 transition-colors">partners@neok.com</a>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-serif mb-2 text-stone-900">Headquarters (Korea)</h3>
-                        <p class="text-stone-600">
-                            123 Teheran-ro, Gangnam-gu<br>
-                            Seoul, South Korea
+                <!-- Left Column: Branding & Info -->
+                <div class="lg:col-span-4 space-y-12">
+                    <section>
+                        <span
+                            class="text-[10px] font-mono uppercase tracking-[0.3em] text-stone-400 mb-6 block">Inquiries</span>
+                        <h1 class="text-5xl md:text-6xl font-serif text-stone-900 mb-8 leading-tight">Connect with <br>
+                            Neo K</h1>
+                        <p class="text-stone-500 leading-relaxed font-light text-lg">
+                            Building a cultural standard requires collaboration. We are here to discuss continuity,
+                            education, and the future of K-Lifestyle.
                         </p>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-serif mb-2 text-stone-900">Vietnam Office</h3>
-                        <p class="text-stone-600">
-                            456 Le Duan, District 1<br>
-                            Ho Chi Minh City, Vietnam
-                        </p>
-                    </div>
+                    </section>
+
+                    <section class="space-y-10">
+                        <div class="pt-8 border-t border-stone-300/50">
+                            <h3 class="text-xs font-mono uppercase tracking-[0.2em] text-stone-400 mb-4">Official
+                                Channels</h3>
+                            <div class="space-y-4">
+                                <a href="mailto:info@neok.com"
+                                    class="block text-lg hover:text-stone-500 transition-colors">info@neok.com</a>
+                                <a href="mailto:partners@neok.com"
+                                    class="block text-lg hover:text-stone-500 transition-colors">partners@neok.com</a>
+                            </div>
+                        </div>
+
+                        <div class="pt-8 border-t border-stone-300/50 space-y-8">
+                            <div>
+                                <h3 class="text-xs font-mono uppercase tracking-[0.2em] text-stone-400 mb-4">Seoul
+                                    Headquarters (한국주소)</h3>
+                                <p class="text-stone-700 leading-relaxed italic">
+                                    1st floor, Peace Building, <br>
+                                    456 Yeoksam-ro, Gangnam-gu, <br>
+                                    Seoul, South Korea
+                                </p>
+                            </div>
+                            <div>
+                                <h3 class="text-xs font-mono uppercase tracking-[0.2em] text-stone-400 mb-4">Vietnam
+                                    Operation (베트남주소)</h3>
+                                <p class="text-stone-700 leading-relaxed italic">
+                                    12A A lô A10, <br>
+                                    Khu đô thị Nam Trung Yên, <br>
+                                    Cầu Giấy, Hà Nội, Vietnam
+                                </p>
+                            </div>
+                        </div>
+                    </section>
                 </div>
 
-                <!-- Contact Form -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-stone-100">
-                    <form class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-xs font-mono uppercase text-stone-500 mb-2">Name</label>
-                            <input type="text" id="name"
-                                class="w-full bg-stone-50 border border-stone-200 rounded px-4 py-3 focus:outline-none focus:border-stone-400 transition-colors"
-                                placeholder="Your Name">
-                        </div>
-                        <div>
-                            <label for="email"
-                                class="block text-xs font-mono uppercase text-stone-500 mb-2">Email</label>
-                            <input type="email" id="email"
-                                class="w-full bg-stone-50 border border-stone-200 rounded px-4 py-3 focus:outline-none focus:border-stone-400 transition-colors"
-                                placeholder="your@email.com">
-                        </div>
-                        <div>
-                            <label for="message"
-                                class="block text-xs font-mono uppercase text-stone-500 mb-2">Message</label>
-                            <textarea id="message" rows="4"
-                                class="w-full bg-stone-50 border border-stone-200 rounded px-4 py-3 focus:outline-none focus:border-stone-400 transition-colors"
-                                placeholder="How can we help?"></textarea>
-                        </div>
-                        <button type="submit"
-                            class="w-full bg-stone-900 text-white font-mono uppercase text-xs tracking-widest py-4 rounded hover:bg-stone-800 transition-colors">
-                            Send Message
-                        </button>
-                    </form>
+                <!-- Right Column: Interactive Form -->
+                <div class="lg:col-span-8">
+                    <div class="glass-card p-8 md:p-12 rounded-[2rem] shadow-2xl shadow-stone-200/50">
+                        <form class="space-y-8">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div class="space-y-2">
+                                    <label
+                                        class="text-[10px] font-mono uppercase tracking-widest text-stone-400 px-1">Integrity
+                                        Name</label>
+                                    <input type="text"
+                                        class="w-full bg-stone-100/50 border border-stone-200/80 rounded-xl px-5 py-4 focus:ring-1 focus:ring-stone-400 outline-none transition-all placeholder:text-stone-300"
+                                        placeholder="John Doe">
+                                </div>
+                                <div class="space-y-2">
+                                    <label
+                                        class="text-[10px] font-mono uppercase tracking-widest text-stone-400 px-1">Correspondence
+                                        Email</label>
+                                    <input type="email"
+                                        class="w-full bg-stone-100/50 border border-stone-200/80 rounded-xl px-5 py-4 focus:ring-1 focus:ring-stone-400 outline-none transition-all placeholder:text-stone-300"
+                                        placeholder="hello@example.com">
+                                </div>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label
+                                    class="text-[10px] font-mono uppercase tracking-widest text-stone-400 px-1">Subject
+                                    of Dialogue</label>
+                                <select
+                                    class="w-full bg-stone-100/50 border border-stone-200/80 rounded-xl px-5 py-4 focus:ring-1 focus:ring-stone-400 outline-none transition-all text-stone-600 appearance-none">
+                                    <option>Partnership Inquiry</option>
+                                    <option>Competency Certification</option>
+                                    <option>Educational Programs</option>
+                                    <option>Culture & Lifestyle</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-mono uppercase tracking-widest text-stone-400 px-1">The
+                                    Message</label>
+                                <textarea rows="6"
+                                    class="w-full bg-stone-100/50 border border-stone-200/80 rounded-xl px-5 py-4 focus:ring-1 focus:ring-stone-400 outline-none transition-all placeholder:text-stone-300 resize-none"
+                                    placeholder="Share your vision with us..."></textarea>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full group relative bg-stone-900 text-white rounded-xl py-5 overflow-hidden transition-all hover:scale-[1.01] active:scale-[0.99] shadow-xl shadow-stone-300">
+                                <span class="relative z-10 font-mono text-xs uppercase tracking-[0.2em]">Initiate
+                                    Contact</span>
+                                <div
+                                    class="absolute inset-0 bg-stone-800 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                </div>
+                            </button>
+                        </form>
+                    </div>
                 </div>
 
             </div>
         </div>
     </main>
 
-    <footer class="bg-stone-950 text-stone-500 py-12 px-12 border-t border-stone-900">
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="text-[10px] font-mono text-stone-600">
-                © 2026 Neo K-Cultures. All rights reserved.
-            </div>
+    <footer class="py-12 border-t border-stone-200 bg-white/30 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-[10px] font-mono uppercase tracking-widest text-stone-400">© 2026 Neo K-Cultures • Defining
+                the New Standard</p>
         </div>
     </footer>
 
