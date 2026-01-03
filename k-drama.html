@@ -142,12 +142,14 @@
         .review-text {
             display: -webkit-box;
             -webkit-line-clamp: 3;
+            line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
 
         .review-text.expanded {
             -webkit-line-clamp: unset;
+            line-clamp: unset;
             display: block;
         }
 
@@ -186,7 +188,7 @@
                 <a href="#reviews" class="hover:text-k-red-900 transition-colors">Reviews</a>
             </nav>
 
-            <a href="#reservations"
+            <a href="#locations"
                 class="bg-k-red-900 text-stone-50 text-xs font-medium tracking-wide px-5 py-2.5 rounded-md hover:bg-k-red-800 transition-colors duration-300 shadow-sm flex items-center gap-2">
                 <span class="relative flex h-2 w-2">
                     <span
@@ -712,7 +714,8 @@
             </div>
 
             <div class="mt-8 text-center text-xs text-stone-400">
-                <a href="https://www.google.com/maps" target="_blank" class="underline hover:text-stone-600">View all 30
+                <a href="https://www.google.com/maps/place/K-Drama+coffe%26beer/@21.0194539,105.7849037,17z/data=!3m1!4b1!4m6!3m5!1s0x3135ab005c22f461:0x113c75d27db7e080!8m2!3d21.0194489!4d105.7874786!16s%2Fg%2F11x0tvjggr?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank" class="underline hover:text-stone-600">View all 30
                     reviews on Google Maps</a>
             </div>
         </div>
@@ -855,10 +858,20 @@
                             <span>Mon - Sun: 8:00 AM - 11:00 PM</span>
                         </div>
                     </div>
-                    <button
-                        class="mt-6 bg-k-red-900 text-white hover:bg-white hover:text-k-red-900 px-6 py-3 rounded-md text-sm transition-all w-max font-medium shadow-md">
-                        Get Directions
-                    </button>
+                    <div class="flex flex-wrap gap-4 mt-6">
+                        <button
+                            class="bg-k-red-900 text-white hover:bg-white hover:text-k-red-900 px-6 py-3 rounded-md text-sm transition-all w-max font-medium shadow-md">
+                            Get Directions
+                        </button>
+                        <a href="https://open.kakao.com/o/gXptQWZh" target="_blank"
+                            class="bg-[#FEE500] text-[#3A1D1D] hover:bg-[#ffe923] px-6 py-3 rounded-md text-sm transition-all w-max font-medium shadow-md flex items-center gap-2">
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                                <path
+                                    d="M12 3c-5.523 0-10 3.582-10 8c0 2.85 1.868 5.38 4.773 6.786-.245 1.764-1.071 4.542-1.229 5.253a.366.366 0 0 0 .546.381c.884-.556 5.86-3.882 6.877-4.59.349.034.703.053 1.063.053 5.52 0 10-2.6 10-7.882C24 6.6 19.52 3 12 3z" />
+                            </svg>
+                            Chat on KakaoTalk
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
