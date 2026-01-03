@@ -113,13 +113,44 @@
             }
 
             to {
-                transform: translateX(-50%);
+                transform: translateX(calc(-50% - 1rem));
+                /* Account for gap half */
             }
         }
 
         .animate-gallery {
             display: flex;
-            animation: gallery-scroll 40s linear infinite;
+            width: max-content;
+            animation: gallery-scroll 60s linear infinite;
+        }
+
+        /* Lightbox Styles */
+        #lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+            backdrop-filter: blur(8px);
+        }
+
+        #lightbox img {
+            max-width: 90vw;
+            max-height: 85vh;
+            border-radius: 8px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
         }
 
         .gallery-wrapper:hover .animate-gallery {
@@ -721,10 +752,10 @@
                 <h2 class="text-4xl font-serif text-stone-900 text-center">Activities & Partnerships</h2>
             </div>
 
-            <div class="gallery-wrapper relative overflow-hidden pb-12">
+            <div class="gallery-wrapper relative overflow-hidden pb-12 cursor-pointer">
                 <div class="animate-gallery gap-8 px-4">
-                    <!-- Original Set -->
-                    <div class="w-[450px] flex-shrink-0 group">
+                    <!-- Set 1 -->
+                    <div class="w-[450px] flex-shrink-0 group" onclick="openLightbox('./assets/gallery/gallery-1.jpg')">
                         <div
                             class="aspect-video overflow-hidden rounded-2xl mb-4 bg-stone-100 shadow-sm transition-all group-hover:shadow-xl">
                             <img src="./assets/gallery/gallery-1.jpg" alt="Partnership with Nam's School Boston"
@@ -737,7 +768,7 @@
                         </div>
                     </div>
 
-                    <div class="w-[450px] flex-shrink-0 group">
+                    <div class="w-[450px] flex-shrink-0 group" onclick="openLightbox('./assets/gallery/gallery-4.jpg')">
                         <div
                             class="aspect-video overflow-hidden rounded-2xl mb-4 bg-stone-100 shadow-sm transition-all group-hover:shadow-xl">
                             <img src="./assets/gallery/gallery-4.jpg" alt="MOU with Sejong Institute Tashkent"
@@ -750,7 +781,7 @@
                         </div>
                     </div>
 
-                    <div class="w-[450px] flex-shrink-0 group">
+                    <div class="w-[450px] flex-shrink-0 group" onclick="openLightbox('./assets/gallery/gallery-3.jpg')">
                         <div
                             class="aspect-video overflow-hidden rounded-2xl mb-4 bg-stone-100 shadow-sm transition-all group-hover:shadow-xl">
                             <img src="./assets/gallery/gallery-3.jpg" alt="Global Network Expansion"
@@ -763,7 +794,7 @@
                         </div>
                     </div>
 
-                    <div class="w-[450px] flex-shrink-0 group">
+                    <div class="w-[450px] flex-shrink-0 group" onclick="openLightbox('./assets/gallery/gallery-2.jpg')">
                         <div
                             class="aspect-video overflow-hidden rounded-2xl mb-4 bg-stone-100 shadow-sm transition-all group-hover:shadow-xl">
                             <img src="./assets/gallery/gallery-2.jpg" alt="Youth Culture Exchange"
@@ -776,7 +807,7 @@
                         </div>
                     </div>
 
-                    <div class="w-[450px] flex-shrink-0 group">
+                    <div class="w-[450px] flex-shrink-0 group" onclick="openLightbox('./assets/gallery/gallery-5.jpg')">
                         <div
                             class="aspect-video overflow-hidden rounded-2xl mb-4 bg-stone-100 shadow-sm transition-all group-hover:shadow-xl">
                             <img src="./assets/gallery/gallery-5.jpg" alt="Culture Festival Booth"
@@ -789,7 +820,7 @@
                         </div>
                     </div>
 
-                    <div class="w-[450px] flex-shrink-0 group">
+                    <div class="w-[450px] flex-shrink-0 group" onclick="openLightbox('./assets/gallery/gallery-6.jpg')">
                         <div
                             class="aspect-video overflow-hidden rounded-2xl mb-4 bg-stone-100 shadow-sm transition-all group-hover:shadow-xl">
                             <img src="./assets/gallery/gallery-6.jpg" alt="MOU with Livewith"
@@ -802,7 +833,7 @@
                         </div>
                     </div>
 
-                    <div class="w-[450px] flex-shrink-0 group">
+                    <div class="w-[450px] flex-shrink-0 group" onclick="openLightbox('./assets/gallery/gallery-7.jpg')">
                         <div
                             class="aspect-video overflow-hidden rounded-2xl mb-4 bg-stone-100 shadow-sm transition-all group-hover:shadow-xl">
                             <img src="./assets/gallery/gallery-7.jpg" alt="MOU with Indonesia National University"
@@ -815,8 +846,8 @@
                         </div>
                     </div>
 
-                    <!-- Duplicated Set for Loop -->
-                    <div class="w-[450px] flex-shrink-0 group">
+                    <!-- Set 2 (Duplicate) -->
+                    <div class="w-[450px] flex-shrink-0 group" onclick="openLightbox('./assets/gallery/gallery-1.jpg')">
                         <div
                             class="aspect-video overflow-hidden rounded-2xl mb-4 bg-stone-100 shadow-sm transition-all group-hover:shadow-xl">
                             <img src="./assets/gallery/gallery-1.jpg" alt="Partnership with Nam's School Boston"
@@ -829,7 +860,7 @@
                         </div>
                     </div>
 
-                    <div class="w-[450px] flex-shrink-0 group">
+                    <div class="w-[450px] flex-shrink-0 group" onclick="openLightbox('./assets/gallery/gallery-4.jpg')">
                         <div
                             class="aspect-video overflow-hidden rounded-2xl mb-4 bg-stone-100 shadow-sm transition-all group-hover:shadow-xl">
                             <img src="./assets/gallery/gallery-4.jpg" alt="MOU with Sejong Institute Tashkent"
@@ -842,7 +873,7 @@
                         </div>
                     </div>
 
-                    <div class="w-[450px] flex-shrink-0 group">
+                    <div class="w-[450px] flex-shrink-0 group" onclick="openLightbox('./assets/gallery/gallery-3.jpg')">
                         <div
                             class="aspect-video overflow-hidden rounded-2xl mb-4 bg-stone-100 shadow-sm transition-all group-hover:shadow-xl">
                             <img src="./assets/gallery/gallery-3.jpg" alt="Global Network Expansion"
@@ -855,7 +886,7 @@
                         </div>
                     </div>
 
-                    <div class="w-[450px] flex-shrink-0 group">
+                    <div class="w-[450px] flex-shrink-0 group" onclick="openLightbox('./assets/gallery/gallery-2.jpg')">
                         <div
                             class="aspect-video overflow-hidden rounded-2xl mb-4 bg-stone-100 shadow-sm transition-all group-hover:shadow-xl">
                             <img src="./assets/gallery/gallery-2.jpg" alt="Youth Culture Exchange"
@@ -868,7 +899,7 @@
                         </div>
                     </div>
 
-                    <div class="w-[450px] flex-shrink-0 group">
+                    <div class="w-[450px] flex-shrink-0 group" onclick="openLightbox('./assets/gallery/gallery-5.jpg')">
                         <div
                             class="aspect-video overflow-hidden rounded-2xl mb-4 bg-stone-100 shadow-sm transition-all group-hover:shadow-xl">
                             <img src="./assets/gallery/gallery-5.jpg" alt="Culture Festival Booth"
@@ -881,7 +912,7 @@
                         </div>
                     </div>
 
-                    <div class="w-[450px] flex-shrink-0 group">
+                    <div class="w-[450px] flex-shrink-0 group" onclick="openLightbox('./assets/gallery/gallery-6.jpg')">
                         <div
                             class="aspect-video overflow-hidden rounded-2xl mb-4 bg-stone-100 shadow-sm transition-all group-hover:shadow-xl">
                             <img src="./assets/gallery/gallery-6.jpg" alt="MOU with Livewith"
@@ -893,7 +924,8 @@
                             <h4 class="text-stone-800 font-medium">MOU with Livewith (리브위드)</h4>
                         </div>
                     </div>
-                    <div class="w-[450px] flex-shrink-0 group">
+
+                    <div class="w-[450px] flex-shrink-0 group" onclick="openLightbox('./assets/gallery/gallery-7.jpg')">
                         <div
                             class="aspect-video overflow-hidden rounded-2xl mb-4 bg-stone-100 shadow-sm transition-all group-hover:shadow-xl">
                             <img src="./assets/gallery/gallery-7.jpg" alt="MOU with Indonesia National University"
@@ -1003,6 +1035,21 @@
             }
         });
 
+        // Lightbox Functions
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const img = lightbox.querySelector('img');
+            img.src = src;
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Stop scrolling
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Resume scrolling
+        }
+
         // Gallery Drag to Scroll
         const slider = document.querySelector('.gallery-wrapper');
         let isDown = false;
@@ -1031,6 +1078,12 @@
             slider.scrollLeft = scrollLeft - walk;
         });
     </script>
+
+    <!-- Lightbox Markup -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img src="" alt="Full View" onclick="event.stopPropagation()">
+    </div>
 </body>
 
 </html>
