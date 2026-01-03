@@ -186,7 +186,6 @@
         class="md:hidden fixed top-0 left-0 right-0 z-[60] glass-panel border-b border-stone-200 px-6 py-4 flex justify-between items-center transition-all duration-300">
         <div class="flex items-center gap-2">
             <img src="./neok-logo.png" alt="Neo K" class="w-8 h-8 object-contain mix-blend-multiply">
-            <span class="font-serif text-lg">Neo K</span>
         </div>
         <a href="contact.html" class="p-2 text-stone-600 hover:text-stone-900 transition-colors">
             <i data-lucide="mail" class="w-6 h-6"></i>
@@ -682,9 +681,10 @@
             class="relative overflow-hidden flex items-center justify-center min-h-[130vh] border-b border-stone-200">
 
             <!-- Full Background Map - User Uploaded Version -->
-            <div class="absolute inset-0 z-0">
+            <!-- Full Background Map - User Uploaded Version -->
+            <div class="absolute inset-0 z-0 hidden md:block">
                 <img src="./network-map-final.png" alt="Traditional Map Korea/Vietnam Connection"
-                    class="w-full h-full object-contain md:object-cover bg-stone-50/50">
+                    class="w-full h-full object-cover">
             </div>
 
             <div class="max-w-4xl mx-auto z-10 relative text-center">
@@ -718,32 +718,39 @@
                         </ul>
                     </div>
 
-                    <!-- Vietnam Network Card -->
-                    <div
-                        class="bg-stone-50 text-stone-900 p-10 rounded-none shadow-lg border border-stone-200 flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
-                        <h4 class="font-serif text-2xl mb-8 border-b border-stone-200 pb-4 text-stone-900">
-                            Vietnam Network
-                        </h4>
-                        <ul class="text-sm space-y-4 text-stone-600 font-mono flex-grow">
-                            <li class="flex items-center gap-3">
-                                <span class="w-1.5 h-1.5 bg-stone-400 rounded-full"></span>
-                                VC Corp
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <span class="w-1.5 h-1.5 bg-stone-400 rounded-full"></span>
-                                Ministry of Labor & Home Affairs
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <span class="w-1.5 h-1.5 bg-stone-400 rounded-full"></span>
-                                Korean Association & KOICA
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <span class="w-1.5 h-1.5 bg-stone-400 rounded-full"></span>
-                                KOCHAM (10,000+ Firms)
-                            </li>
-                        </ul>
-                    </div>
                 </div>
+
+                <!-- Mobile Map Image (Visible between cards on mobile) -->
+                <div class="md:hidden w-full h-[250px] my-8">
+                    <img src="./network-map-final.png" alt="Connection Map" class="w-full h-full object-contain">
+                </div>
+
+                <!-- Vietnam Network Card -->
+                <div
+                    class="bg-stone-50 text-stone-900 p-10 rounded-none shadow-lg border border-stone-200 flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+                    <h4 class="font-serif text-2xl mb-8 border-b border-stone-200 pb-4 text-stone-900">
+                        Vietnam Network
+                    </h4>
+                    <ul class="text-sm space-y-4 text-stone-600 font-mono flex-grow">
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 bg-stone-400 rounded-full"></span>
+                            VC Corp
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 bg-stone-400 rounded-full"></span>
+                            Ministry of Labor & Home Affairs
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 bg-stone-400 rounded-full"></span>
+                            Korean Association & KOICA
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 bg-stone-400 rounded-full"></span>
+                            KOCHAM (10,000+ Firms)
+                        </li>
+                    </ul>
+                </div>
+            </div>
             </div>
         </section>
 
@@ -1001,8 +1008,6 @@
             </div>
 
             <div class="flex justify-center gap-4 mt-8">
-                <div class="text-[10px] font-mono text-stone-300 uppercase tracking-widest">Continuous Global Motion
-                </div>
             </div>
         </section>
 
@@ -1010,7 +1015,7 @@
         <footer class="bg-stone-950 text-stone-500 py-16 px-12 lg:px-24 border-t border-stone-900">
             <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <div class="text-2xl font-serif text-white mb-4">NEO K</div>
+                    <div class="text-2xl font-serif text-white mb-4">Neo K Culture Center</div>
                     <p class="text-xs max-w-sm leading-relaxed mb-6">
                         We make slow change with K-life style.
                         <br>
