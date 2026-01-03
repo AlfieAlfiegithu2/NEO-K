@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neo K | Neo K-Culture Standard</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Space+Grotesk:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* Base Reset & Typography */
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #f5f5f4;
+            /* Stone 100 */
+            color: #1c1917;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .font-mono {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Utility Classes */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to bottom, #1c1917, #78716c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #d6d3d1;
+            border-radius: 4px;
+        }
+
+        /* Aura Modification */
+        .aura-grayscale {
+            filter: grayscale(100%) opacity(0.08) contrast(1.2);
+            mix-blend-mode: multiply;
+        }
+
+        .vertical-text {
+            writing-mode: vertical-rl;
+        }
+    </style>
+</head>
+
+<body class="flex min-h-screen selection:bg-stone-300 selection:text-stone-900">
+
+    <!-- 1. Sidebar Navigation (Left) -->
+    <aside
+        class="fixed z-50 flex flex-col bg-stone-100/80 w-[70px] h-screen border-stone-200 border-r pt-8 pb-8 top-0 left-0 backdrop-blur-md items-center justify-between transition-all duration-300">
+        <!-- Logo -->
+        <div class="flex flex-col items-center gap-1 cursor-pointer group">
+            <div
+                class="w-8 h-8 bg-stone-900 rounded-full flex items-center justify-center text-white font-serif font-bold text-xs tracking-tighter">
+                NK
+            </div>
+            <span
+                class="text-[10px] tracking-widest font-mono opacity-0 group-hover:opacity-100 transition-opacity absolute top-16">
+                Neo K
+            </span>
+        </div>
+
+        <!-- Nav Items -->
+        <nav class="flex flex-col gap-8 w-full items-center">
+            <!-- Philosophy -->
+            <a href="#philosophy" class="group relative p-3 rounded-xl hover:bg-stone-200 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                    class="w-5 h-5 text-stone-600 group-hover:text-black">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                </svg>
+                <div
+                    class="absolute left-14 bg-black text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap z-50 pointer-events-none">
+                    Philosophy
+                </div>
+            </a>
+
+            <!-- System -->
+            <a href="#system" class="group relative p-3 rounded-xl hover:bg-stone-200 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                    class="w-5 h-5 text-stone-600 group-hover:text-black">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                </svg>
+                <div
+                    class="absolute left-14 bg-black text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap z-50 pointer-events-none">
+                    Levels
+                </div>
+            </a>
+
+            <!-- Portfolio -->
+            <a href="#portfolio" class="group relative p-3 rounded-xl hover:bg-stone-200 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                    class="w-5 h-5 text-stone-600 group-hover:text-black">
+                    <rect width="8" height="18" x="3" y="3" rx="1" />
+                    <rect width="8" height="18" x="13" y="3" rx="1" />
+                </svg>
+                <div
+                    class="absolute left-14 bg-black text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap z-50 pointer-events-none">
+                    Portfolio
+                </div>
+            </a>
+
+            <!-- History -->
+            <a href="#history" class="group relative p-3 rounded-xl hover:bg-stone-200 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                    class="w-5 h-5 text-stone-600 group-hover:text-black">
+                    <path d="M3 3v18h18" />
+                </svg>
+                <div
+                    class="absolute left-14 bg-black text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap z-50 pointer-events-none">
+                    History
+                </div>
+            </a>
+        </nav>
+
+        <!-- Status -->
+        <div class="flex flex-col items-center gap-4">
+            <div class="w-1.5 h-1.5 rounded-full bg-stone-400"></div>
+            <span class="vertical-text text-[10px] font-mono text-stone-400 uppercase tracking-widest rotate-180">
+                Neo K-Cultures
+            </span>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="ml-[70px] w-[calc(100%-70px)] relative">
+
+        <!-- 2. Hero Section -->
+        <section
+            class="relative flex flex-col min-h-screen w-full border-b border-stone-200 bg-stone-100/30 overflow-hidden">
+            <!-- Hero Image Background - Fixed to match PBLK/Reference -->
+            <div class="absolute right-0 top-0 h-full w-1/2 opacity-10 pointer-events-none mix-blend-multiply">
+                <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/6db8c45a-2b6b-4fed-9347-da402489f38f_1600w.jpg"
+                    alt="Moonlit dunes" class="h-full w-full object-cover filter grayscale contrast-125">
+                <div class="absolute inset-0 bg-gradient-to-l from-transparent via-stone-100/50 to-stone-100"></div>
+            </div>
+
+            <div
+                class="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-24 flex flex-col justify-center flex-grow">
+                <div class="mb-8 flex items-center gap-3 animate-fade-in opacity-0"
+                    style="animation: fadeIn 1s forwards 0.2s;">
+                    <span
+                        class="text-[10px] uppercase text-stone-500 tracking-widest font-mono border border-stone-300 rounded px-2 py-1">
+                        Korea Math Ability Certification Association
+                    </span>
+                    <span class="h-[1px] w-12 bg-stone-300"></span>
+                    <span class="text-[10px] font-mono uppercase tracking-widest text-stone-500">
+                        Official Partner of KOCHAM
+                    </span>
+                </div>
+
+                <h1 class="text-[clamp(3.5rem,7vw,7rem)] leading-[1] text-stone-900 tracking-tight mb-8 font-serif">
+                    <span class="block text-stone-400">We make</span>
+                    <span class="block">Slow Change</span>
+                    <span class="block italics"><i>with</i> K-Lifestyle.</span>
+                </h1>
+
+                <p
+                    class="text-lg md:text-xl text-stone-600 font-light max-w-xl mb-12 leading-relaxed tracking-tight reveal-sub opacity-0">
+                    A cultural standard built on connection, permeation, and continuity.
+                    Neo K defines the new criteria for K-life competence and education.
+                </p>
+
+                <div class="flex flex-wrap gap-6 items-center reveal-cta opacity-0">
+                    <button
+                        class="group relative px-8 py-3 bg-stone-900 text-stone-50 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg">
+                        <span class="relative z-10 font-mono text-xs uppercase tracking-widest">Start Assessment</span>
+                        <div
+                            class="absolute inset-0 bg-stone-800 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500">
+                        </div>
+                    </button>
+
+                    <a href="#philosophy"
+                        class="group flex items-center gap-2 hover:text-stone-900 transition-colors text-sm text-stone-500 font-mono border-b border-transparent hover:border-stone-900 pb-0.5">
+                        DISCOVER IDENTITY
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-arrow-right w-4 h-4 transition-transform group-hover:translate-x-1">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Ticker / Quick Stats -->
+            <div class="w-full border-t border-stone-200 bg-white/40 backdrop-blur-md">
+                <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
+                    <div
+                        class="flex gap-8 text-[11px] font-mono uppercase text-stone-500 tracking-widest overflow-x-auto no-scrollbar">
+                        <span>Rec. by Dept. of Labor (VN)</span>
+                        <span class="text-stone-300">•</span>
+                        <span>Rec. by KOCHAM (10,000 Companies)</span>
+                        <span class="text-stone-300">•</span>
+                        <span>Chair: Former Minister of Culture (Korea)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Identity (Manifesto) -->
+        <section id="philosophy" class="lg:px-24 border-stone-200 border-b pt-32 pr-12 pb-32 pl-12 bg-white">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-16">
+                <div class="md:col-span-12 mb-12 text-center md:text-left">
+                    <span class="text-xs font-mono uppercase tracking-widest text-stone-400 block mb-4">Corporate
+                        Identity</span>
+                    <h2 class="text-4xl md:text-5xl font-serif text-stone-900 leading-tight max-w-4xl">
+                        Culture is not enforced.<br>
+                        It permeates.
+                    </h2>
+                </div>
+
+                <!-- Concept 1 -->
+                <div
+                    class="md:col-span-4 p-8 border border-stone-200 bg-stone-50 hover:bg-white hover:shadow-xl transition-all duration-500 group">
+                    <div class="text-4xl text-stone-200 font-serif mb-6 group-hover:text-stone-900 transition-colors">01
+                    </div>
+                    <h3 class="text-xl font-medium mb-2">Connection (연결)</h3>
+                    <p class="text-sm text-stone-500 leading-relaxed">
+                        Understanding differs across environments. True connection requires time, patience, and the
+                        bridging of disparate thoughts.
+                    </p>
+                </div>
+
+                <!-- Concept 2 -->
+                <div
+                    class="md:col-span-4 p-8 border border-stone-200 bg-stone-50 hover:bg-white hover:shadow-xl transition-all duration-500 group">
+                    <div class="text-4xl text-stone-200 font-serif mb-6 group-hover:text-stone-900 transition-colors">02
+                    </div>
+                    <h3 class="text-xl font-medium mb-2">Permeation (스며듬)</h3>
+                    <p class="text-sm text-stone-500 leading-relaxed">
+                        Our keyword. Culture should not be forced but should naturally diffuse into daily life through
+                        genuine appeal.
+                    </p>
+                </div>
+
+                <!-- Concept 3 -->
+                <div
+                    class="md:col-span-4 p-8 border border-stone-200 bg-stone-50 hover:bg-white hover:shadow-xl transition-all duration-500 group">
+                    <div class="text-4xl text-stone-200 font-serif mb-6 group-hover:text-stone-900 transition-colors">03
+                    </div>
+                    <h3 class="text-xl font-medium mb-2">Continuity (이어짐)</h3>
+                    <p class="text-sm text-stone-500 leading-relaxed">
+                        K-Lifestyle becomes the standard, an object of admiration. We aim to make this way of life a
+                        global continuity.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. TOMIC System (Levels) -->
+        <section id="system" class="py-32 px-12 lg:px-24 bg-stone-50 border-b border-stone-200">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-20 flex flex-col md:flex-row justify-between items-end">
+                    <div>
+                        <span class="text-xs font-mono uppercase tracking-widest text-stone-400 block mb-2">The
+                            Standard</span>
+                        <h2 class="text-4xl font-serif text-stone-900">
+                            TOMIC Assessment Levels
+                        </h2>
+                    </div>
+                    <div class="mt-4 md:mt-0">
+                        <span
+                            class="inline-flex items-center gap-2 px-4 py-2 bg-stone-200 rounded-full text-[10px] font-mono uppercase tracking-widest text-stone-600">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            Online Certification Available
+                        </span>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <!-- Vertical Line -->
+                    <div class="absolute left-4 top-0 bottom-0 w-[1px] bg-stone-200 hidden md:block"></div>
+
+                    <!-- Level 1 -->
+                    <div
+                        class="relative pl-0 md:pl-16 py-8 grid grid-cols-1 md:grid-cols-3 gap-8 group cursor-pointer hover:bg-white/50 transition-colors rounded-xl p-4">
+                        <div
+                            class="absolute left-[13px] top-12 w-2 h-2 rounded-full bg-stone-300 group-hover:bg-stone-900 transition-colors hidden md:block outline outline-4 outline-stone-50">
+                        </div>
+                        <div class="col-span-1">
+                            <span class="text-xs font-mono text-stone-400 mb-2 block">Level 01</span>
+                            <h3 class="text-xl font-medium">Basic Communication</h3>
+                        </div>
+                        <div class="col-span-2 border-l border-stone-200 pl-6 md:pl-0 md:border-none">
+                            <p class="text-sm text-stone-500 max-w-md">
+                                Ability to communicate with Koreans using numbers and basic terminology. Essential for
+                                simple operational tasks.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Level 2 -->
+                    <div
+                        class="relative pl-0 md:pl-16 py-8 grid grid-cols-1 md:grid-cols-3 gap-8 group cursor-pointer hover:bg-white/50 transition-colors rounded-xl p-4">
+                        <div
+                            class="absolute left-[13px] top-12 w-2 h-2 rounded-full bg-stone-300 group-hover:bg-stone-900 transition-colors hidden md:block outline outline-4 outline-stone-50">
+                        </div>
+                        <div class="col-span-1">
+                            <span class="text-xs font-mono text-stone-400 mb-2 block">Level 02</span>
+                            <h3 class="text-xl font-medium">Academic Foundation</h3>
+                        </div>
+                        <div class="col-span-2 border-l border-stone-200 pl-6 md:pl-0 md:border-none">
+                            <p class="text-sm text-stone-500 max-w-md">
+                                Understanding of most Korean mathematical terms. Capable of private tutoring for Korean
+                                elementary students.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Level 3 -->
+                    <div
+                        class="relative pl-0 md:pl-16 py-8 grid grid-cols-1 md:grid-cols-3 gap-8 group cursor-pointer hover:bg-white/50 transition-colors rounded-xl p-4">
+                        <div
+                            class="absolute left-[13px] top-12 w-2 h-2 rounded-full bg-stone-300 group-hover:bg-stone-900 transition-colors hidden md:block outline outline-4 outline-stone-50">
+                        </div>
+                        <div class="col-span-1">
+                            <span class="text-xs font-mono text-stone-400 mb-2 block">Level 03</span>
+                            <h3 class="text-xl font-medium">Advanced Proficiency</h3>
+                        </div>
+                        <div class="col-span-2 border-l border-stone-200 pl-6 md:pl-0 md:border-none">
+                            <p class="text-sm text-stone-500 max-w-md">
+                                Full comprehension of middle & high school math problems. Capable of teaching and
+                                understanding corporate economic terminology.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Instructor -->
+                    <div
+                        class="relative pl-0 md:pl-16 py-8 grid grid-cols-1 md:grid-cols-3 gap-8 group bg-stone-900 text-stone-100 rounded-xl p-6 mt-4 shadow-xl">
+                        <div
+                            class="absolute left-[13px] top-14 w-2 h-2 rounded-full bg-white hidden md:block outline outline-4 outline-stone-900">
+                        </div>
+                        <div class="col-span-1">
+                            <span class="text-xs font-mono text-stone-400 mb-2 block">Professional Certification</span>
+                            <h3 class="text-xl font-medium text-white">Business Math Instructor</h3>
+                        </div>
+                        <div class="col-span-2 border-l border-stone-700 pl-6 md:pl-0 md:border-none">
+                            <p class="text-sm text-stone-400 max-w-md mb-4">
+                                Certified to teach Levels 1, 2, and 3. Qualification officially recognized by the Korea
+                                Math Ability Certification Association (K-MACA).
+                            </p>
+                            <button
+                                class="text-[10px] font-mono uppercase tracking-widest border-b border-white pb-1 hover:text-emerald-400 hover:border-emerald-400 transition-colors">
+                                Apply for License
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Business Portfolio -->
+        <section id="portfolio" class="py-32 px-12 lg:px-24 bg-white border-b border-stone-200">
+            <h2 class="text-4xl font-serif text-stone-900 mb-16 text-center">Business Portfolio</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
+                <!-- Card 1 -->
+                <div
+                    class="group relative overflow-hidden bg-stone-50 border border-stone-100 h-[400px] flex flex-col p-8 transition-all hover:shadow-lg">
+                    <div
+                        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2000&auto=format&fit=crop')] bg-cover opacity-0 group-hover:opacity-10 transition-opacity duration-700 grayscale">
+                    </div>
+                    <span class="text-xs font-mono text-stone-400 mb-4 z-10">01</span>
+                    <h3 class="text-2xl font-serif mb-4 z-10">Korean Math & <br>Language Education</h3>
+                    <p class="text-sm text-stone-500 z-10 mt-auto">
+                        Systematic curriculum combining mathematical logic with clear language acquisition. The
+                        foundation of Neo K-Culture.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="group relative overflow-hidden bg-stone-900 text-white h-[400px] flex flex-col p-8 transition-all hover:shadow-lg hover:-translate-y-2">
+                    <div
+                        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2000&auto=format&fit=crop')] bg-cover opacity-30 mix-blend-overlay">
+                    </div>
+                    <span class="text-xs font-mono text-stone-400 mb-4 z-10">02</span>
+                    <h3 class="text-2xl font-serif mb-4 z-10">K-Culture Experience</h3>
+                    <p class="text-sm text-stone-300 z-10 mt-auto mb-4">
+                        A complex cultural space.
+                    </p>
+                    <ul class="text-xs text-stone-400 z-10 space-y-2 font-mono">
+                        <li>• Day: Traditional Tea & Exhibitions</li>
+                        <li>• Night: Dining, Spirits & Performance</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="group relative overflow-hidden bg-stone-50 border border-stone-100 h-[400px] flex flex-col p-8 transition-all hover:shadow-lg">
+                    <div
+                        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=2000&auto=format&fit=crop')] bg-cover opacity-0 group-hover:opacity-10 transition-opacity duration-700 grayscale">
+                    </div>
+                    <span class="text-xs font-mono text-stone-400 mb-4 z-10">03</span>
+                    <h3 class="text-2xl font-serif mb-4 z-10">Events & <br>Exhibitions</h3>
+                    <p class="text-sm text-stone-500 z-10 mt-auto">
+                        Connecting markets. Introducing superior Korean products to Vietnam, and showcasing Vietnam's
+                        finest in Korea.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Network & Competitiveness -->
+        <section class="py-32 px-12 lg:px-24 bg-stone-100 border-b border-stone-200">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span class="text-xs font-mono uppercase tracking-widest text-stone-400 mb-4 block">Our
+                        Competitiveness</span>
+                    <h2 class="text-3xl font-serif text-stone-900 mb-8">
+                        Unmatched Institutional Network
+                    </h2>
+                    <p class="text-stone-500 mb-8 leading-relaxed">
+                        Neo K-Cultures connects the maps of Korea and Vietnam not just geographically, but
+                        institutionally. We leverage high-level networks to ensure seamless business planning and
+                        execution.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold text-sm uppercase tracking-wide mb-4 border-b border-stone-300 pb-2">
+                                Vietnam Network</h4>
+                            <ul class="text-xs space-y-3 text-stone-600 font-mono">
+                                <li>VC Corp & Networking</li>
+                                <li>Ministry of Labor & Home Affairs</li>
+                                <li>Korean Association & KOICA</li>
+                                <li>KOCHAM (10,000+ Firms)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm uppercase tracking-wide mb-4 border-b border-stone-300 pb-2">
+                                Korea Network</h4>
+                            <ul class="text-xs space-y-3 text-stone-600 font-mono">
+                                <li>Ministry of Culture (MCST)</li>
+                                <li>Ministry of Education (MOE)</li>
+                                <li>Embassy & MBN / Arirang</li>
+                                <li>Major Chaebols (Conglomerates)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Graphic Visualization Placeholder -->
+                <div
+                    class="relative h-[400px] bg-white p-8 border border-stone-200 rounded-2xl shadow-xl flex items-center justify-center overflow-hidden">
+                    <!-- Stylized Map Connection -->
+                    <div
+                        class="absolute inset-0 opacity-10 bg-[url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg')] bg-cover bg-center">
+                    </div>
+                    <div class="relative z-10 flex items-center gap-8">
+                        <div
+                            class="w-24 h-24 rounded-full bg-stone-100 border-2 border-stone-900 flex items-center justify-center font-serif text-xl font-bold shadow-lg">
+                            KR</div>
+                        <div class="h-[2px] w-24 bg-stone-300 relative">
+                            <div class="absolute -top-1.5 left-1/2 -ml-1.5 w-3 h-3 bg-stone-900 rotate-45"></div>
+                        </div>
+                        <div
+                            class="w-24 h-24 rounded-full bg-stone-100 border-2 border-stone-900 flex items-center justify-center font-serif text-xl font-bold shadow-lg">
+                            VN</div>
+                    </div>
+                    <div class="absolute bottom-8 text-[10px] font-mono uppercase tracking-widest text-stone-400">
+                        Bridged by Neo K-Cultures
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Roadmap / History -->
+        <section id="history" class="py-32 px-12 lg:px-24 bg-stone-900 text-stone-400">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-serif text-white mb-16 text-center">Our Journey</h2>
+
+                <div class="space-y-12 border-l border-stone-700 pl-8 ml-4 md:ml-0">
+                    <div class="relative">
+                        <span
+                            class="absolute -left-[37px] top-1 w-3 h-3 bg-stone-600 rounded-full border-2 border-stone-900"></span>
+                        <span class="text-xs font-mono text-stone-500 mb-1 block">July 2017</span>
+                        <h4 class="text-lg text-white font-medium">Launch of Emotional Math</h4>
+                    </div>
+                    <div class="relative">
+                        <span
+                            class="absolute -left-[37px] top-1 w-3 h-3 bg-stone-600 rounded-full border-2 border-stone-900"></span>
+                        <span class="text-xs font-mono text-stone-500 mb-1 block">2020</span>
+                        <h4 class="text-lg text-white font-medium">Establishment of Emotional Education Co., Ltd.</h4>
+                    </div>
+                    <div class="relative">
+                        <span
+                            class="absolute -left-[37px] top-1 w-3 h-3 bg-stone-600 rounded-full border-2 border-stone-900"></span>
+                        <span class="text-xs font-mono text-stone-500 mb-1 block">2023</span>
+                        <h4 class="text-lg text-white font-medium">MOU with King Sejong Institute, Tashkent (Uzbekistan)
+                        </h4>
+                    </div>
+                    <div class="relative">
+                        <span
+                            class="absolute -left-[37px] top-1 w-3 h-3 bg-stone-600 rounded-full border-2 border-stone-900"></span>
+                        <span class="text-xs font-mono text-stone-500 mb-1 block">July 2024</span>
+                        <h4 class="text-lg text-white font-medium">MOU with Nam's School, Boston</h4>
+                    </div>
+                    <div class="relative">
+                        <span
+                            class="absolute -left-[37px] top-1 w-3 h-3 bg-emerald-500 rounded-full border-2 border-stone-900 shadow-[0_0_10px_rgba(16,185,129,0.5)]"></span>
+                        <span class="text-xs font-mono text-emerald-400 mb-1 block">Upcoming - Oct 2025</span>
+                        <h4 class="text-lg text-emerald-400 font-medium">MOU with Indonesia National University & 1st
+                            TOMIC Exam</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Footer -->
+        <footer class="bg-stone-950 text-stone-500 py-16 px-12 lg:px-24 border-t border-stone-900">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="text-2xl font-serif text-white mb-4">TOMIC</div>
+                    <p class="text-xs max-w-sm leading-relaxed mb-6">
+                        We make slow change with K-life style.
+                        <br>
+                        TOMIC is the official standard for Korean cultural and mathematical competency authentication.
+                    </p>
+                    <div class="text-[10px] font-mono text-stone-600">
+                        © 2026 Neo K-Cultures. All rights reserved.
+                    </div>
+                </div>
+                <div class="flex justify-end gap-8">
+                    <a href="#" class="hover:text-white transition-colors">Contact</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                    <a href="#" class="hover:text-white transition-colors">Partnership</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animations
+        gsap.from("h1 span", {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power3.out",
+            delay: 0.5
+        });
+
+        gsap.to(".reveal-sub", {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            delay: 1.2,
+            ease: "power3.out"
+        });
+
+        gsap.to(".reveal-cta", {
+            opacity: 1,
+            duration: 1,
+            delay: 1.4,
+            ease: "power3.out"
+        });
+
+        // Section Reveal
+        const sections = document.querySelectorAll("section");
+        sections.forEach(section => {
+            gsap.fromTo(section.children,
+                { y: 30, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    stagger: 0.1,
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 80%"
+                    }
+                }
+            );
+        });
+    </script>
+</body>
+
+</html>
