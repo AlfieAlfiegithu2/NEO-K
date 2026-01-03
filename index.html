@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neo K | Neo K-Culture Standard</title>
+    <title>Neo K | Neo K Culture Center</title>
     <link rel="icon" type="image/png" href="neok-logo.png">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -188,9 +188,9 @@
             <img src="./neok-logo.png" alt="Neo K" class="w-8 h-8 object-contain mix-blend-multiply">
             <span class="font-serif text-lg">Neo K</span>
         </div>
-        <button id="mobile-menu-btn" class="p-2 text-stone-600">
-            <i data-lucide="menu" class="w-6 h-6"></i>
-        </button>
+        <a href="contact.html" class="p-2 text-stone-600 hover:text-stone-900 transition-colors">
+            <i data-lucide="mail" class="w-6 h-6"></i>
+        </a>
     </header>
 
     <!-- Mobile Menu Overlay -->
@@ -554,21 +554,22 @@
 
                     <!-- Instructor -->
                     <div
-                        class="relative pl-0 md:pl-16 py-8 grid grid-cols-1 md:grid-cols-3 gap-8 group bg-stone-900 text-stone-100 rounded-xl p-6 mt-4 shadow-xl">
+                        class="relative pl-0 md:pl-16 py-8 grid grid-cols-1 md:grid-cols-3 gap-8 group bg-white md:bg-stone-900 text-stone-900 md:text-stone-100 rounded-xl p-6 mt-4 shadow-sm md:shadow-xl border border-stone-100 md:border-none">
                         <div
-                            class="absolute left-[13px] top-14 w-2 h-2 rounded-full bg-white hidden md:block outline outline-4 outline-stone-900">
+                            class="absolute left-[13px] top-14 w-2 h-2 rounded-full bg-stone-300 md:bg-white hidden md:block outline outline-4 outline-stone-50 md:outline-stone-900">
                         </div>
                         <div class="col-span-1">
                             <span class="text-xs font-mono text-stone-400 mb-2 block">Professional Certification</span>
-                            <h3 class="text-xl font-medium text-white">Business Math Instructor</h3>
+                            <h3 class="text-xl font-medium text-stone-900 md:text-white">Business Math Instructor</h3>
                         </div>
-                        <div class="col-span-2 border-l border-stone-700 pl-6 md:pl-0 md:border-none">
-                            <p class="text-sm text-stone-400 max-w-md mb-4">
+                        <div
+                            class="col-span-2 border-l border-stone-200 md:border-stone-700 pl-6 md:pl-0 md:border-none">
+                            <p class="text-sm text-stone-500 md:text-stone-400 max-w-md mb-4">
                                 Certified to teach Levels 1, 2, and 3. Qualification officially recognized by the Korea
                                 Math Ability Certification Association (K-MACA).
                             </p>
                             <button
-                                class="text-[10px] font-mono uppercase tracking-widest border-b border-white pb-1 hover:text-emerald-400 hover:border-emerald-400 transition-colors">
+                                class="text-[10px] font-mono uppercase tracking-widest border-b border-stone-900 md:border-white pb-1 hover:text-emerald-500 md:hover:text-emerald-400 hover:border-emerald-500 md:hover:border-emerald-400 transition-colors">
                                 Apply for License
                             </button>
                         </div>
@@ -682,7 +683,7 @@
             <!-- Full Background Map - User Uploaded Version -->
             <div class="absolute inset-0 z-0">
                 <img src="./network-map-final.png" alt="Traditional Map Korea/Vietnam Connection"
-                    class="w-full h-full object-cover">
+                    class="w-full h-full object-contain md:object-cover bg-stone-50/50">
             </div>
 
             <div class="max-w-4xl mx-auto z-10 relative text-center">
