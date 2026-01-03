@@ -176,11 +176,8 @@
     <header
         class="fixed top-0 w-full z-40 bg-k-wood-50/80 backdrop-blur-md border-b border-stone-200/60 transition-all duration-300">
         <div class="max-w-screen-xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="#"
-                class="font-serif text-xl tracking-tight text-k-red-900 flex items-center gap-2 font-bold shrink-0">
-                K-DRAMA <span
-                    class="hidden sm:inline text-xs font-sans font-normal text-stone-500 uppercase tracking-widest mt-1">Cafe
-                    & Beer</span>
+            <a href="#" class="flex items-center gap-2 shrink-0">
+                <img src="assets/kdrama-logo.png" alt="K-Drama Cafe & Beer" class="h-12 w-auto object-contain">
             </a>
 
             <nav class="hidden md:flex items-center gap-8 text-sm tracking-wide text-stone-600 font-medium">
@@ -191,14 +188,23 @@
             </nav>
 
             <div class="flex items-center gap-4">
-                <a href="#locations"
-                    class="hidden min-[400px]:flex bg-k-red-900 text-stone-50 text-[10px] sm:text-xs font-medium tracking-wide px-3 sm:px-5 py-2 sm:py-2.5 rounded-md hover:bg-k-red-800 transition-colors duration-300 shadow-sm items-center gap-2">
-                    <span class="relative flex h-2 w-2">
+                <a href="#locations" title="Reserve Table"
+                    class="hidden min-[400px]:flex bg-k-red-900 text-stone-50 p-2.5 rounded-full hover:bg-k-red-800 transition-colors duration-300 shadow-sm items-center justify-center relative group">
+                    <span class="absolute top-0 right-0 flex h-2.5 w-2.5">
                         <span
                             class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                        <span
+                            class="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500 border-2 border-k-wood-50"></span>
                     </span>
-                    Reserve
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-calendar-check">
+                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                        <line x1="16" y1="2" x2="16" y2="6" />
+                        <line x1="8" y1="2" x2="8" y2="6" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
+                        <path d="m9 16 2 2 4-4" />
+                    </svg>
                 </a>
 
                 <!-- Mobile Menu Button -->
@@ -255,13 +261,6 @@
             </div>
         </div>
 
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-            <svg class="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3">
-                </path>
-            </svg>
-        </div>
     </section>
 
     <!-- Menu Section -->
