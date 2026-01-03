@@ -55,6 +55,7 @@
         .text-gradient {
             background: linear-gradient(to bottom, #1c1917, #78716c);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
@@ -90,6 +91,11 @@
             color: #f5f5f4;
         }
 
+        /* Clip Path Text Reveal Class */
+        .clip-text {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
         /* Marquee Animation */
         @keyframes marquee {
             0% {
@@ -118,14 +124,8 @@
         class="fixed z-50 flex flex-col bg-stone-100/80 w-[70px] h-screen border-stone-200 border-r pt-8 pb-8 top-0 left-0 backdrop-blur-md items-center justify-between transition-all duration-300">
         <!-- Logo -->
         <div class="flex flex-col items-center gap-1 cursor-pointer group">
-            <div
-                class="w-8 h-8 bg-stone-900 rounded-full flex items-center justify-center text-white font-serif font-bold text-xs tracking-tighter">
-                NK
-            </div>
-            <span
-                class="text-[10px] tracking-widest font-mono opacity-0 group-hover:opacity-100 transition-opacity absolute top-16">
-                Neo K
-            </span>
+            <img src="./neok-logo.png" alt="Neo K Logo"
+                class="w-10 h-auto mix-blend-multiply opacity-90 group-hover:opacity-100 transition-opacity">
         </div>
 
         <!-- Nav Items -->
@@ -172,6 +172,8 @@
                 </div>
             </a>
         </nav>
+
+        <!-- Status -->
 
         <!-- Status -->
         <div class="flex flex-col items-center gap-4">
@@ -222,13 +224,13 @@
                 </p>
 
                 <div class="flex flex-wrap gap-6 items-center reveal-cta opacity-0">
-                    <button
-                        class="group relative px-8 py-3 bg-stone-900 text-stone-50 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg">
-                        <span class="relative z-10 font-mono text-xs uppercase tracking-widest">Start Assessment</span>
+                    <a href="contact.html"
+                        class="group relative px-8 py-3 bg-stone-900 text-stone-50 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg inline-block">
+                        <span class="relative z-10 font-mono text-xs uppercase tracking-widest">Contact Us</span>
                         <div
                             class="absolute inset-0 bg-stone-800 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500">
                         </div>
-                    </button>
+                    </a>
 
                     <a href="#philosophy"
                         class="group flex items-center gap-2 hover:text-stone-900 transition-colors text-sm text-stone-500 font-mono border-b border-transparent hover:border-stone-900 pb-0.5">
@@ -508,50 +510,49 @@
         </section>
 
         <!-- 6. Network & Competitiveness -->
-        <section class="py-32 px-12 lg:px-24 bg-stone-100 border-b border-stone-200">
-            <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <span class="text-xs font-mono uppercase tracking-widest text-stone-400 mb-4 block">Our
-                        Competitiveness</span>
-                    <h2 class="text-3xl font-serif text-stone-900 mb-8">
-                        Unmatched Institutional Network
-                    </h2>
-                    <p class="text-stone-500 mb-8 leading-relaxed">
-                        Neo K-Cultures connects the maps of Korea and Vietnam not just geographically, but
-                        institutionally. We leverage high-level networks to ensure seamless business planning and
-                        execution.
-                    </p>
+        <section id="network"
+            class="relative overflow-hidden flex items-center justify-center min-h-screen border-b border-stone-200">
 
-                    <div class="grid grid-cols-2 gap-8">
-                        <div>
-                            <h4 class="font-bold text-sm uppercase tracking-wide mb-4 border-b border-stone-300 pb-2">
-                                Vietnam Network</h4>
-                            <ul class="text-xs space-y-3 text-stone-600 font-mono">
-                                <li>VC Corp & Networking</li>
-                                <li>Ministry of Labor & Home Affairs</li>
-                                <li>Korean Association & KOICA</li>
-                                <li>KOCHAM (10,000+ Firms)</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-sm uppercase tracking-wide mb-4 border-b border-stone-300 pb-2">
-                                Korea Network</h4>
-                            <ul class="text-xs space-y-3 text-stone-600 font-mono">
-                                <li>Ministry of Culture (MCST)</li>
-                                <li>Ministry of Education (MOE)</li>
-                                <li>Embassy & MBN / Arirang</li>
-                                <li>Major Chaebols (Conglomerates)</li>
-                            </ul>
-                        </div>
+            <!-- Full Background Map - User Uploaded Version -->
+            <div class="absolute inset-0 z-0">
+                <img src="./network-map-final.png" alt="Traditional Map Korea/Vietnam Connection"
+                    class="w-full h-full object-cover">
+            </div>
+
+            <div class="max-w-4xl mx-auto z-10 relative text-center">
+                <h2 class="text-4xl md:text-5xl font-serif text-stone-900 mb-12 drop-shadow-sm">
+                    Unmatched <br> Institutional Network
+                </h2>
+                <p class="text-stone-600 mb-16 leading-relaxed text-lg max-w-2xl mx-auto">
+                    Neo K-Cultures connects the maps of Korea and Vietnam not just geographically, but
+                    institutionally. We leverage high-level networks to ensure seamless business planning and
+                    execution.
+                </p>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 gap-16 text-left bg-white/60 backdrop-blur-sm p-10 rounded-2xl border border-white/50 shadow-sm">
+                    <div>
+                        <h4
+                            class="font-bold text-sm uppercase tracking-wide mb-6 border-b border-stone-300 pb-2 text-stone-800">
+                            Vietnam Network</h4>
+                        <ul class="text-sm space-y-3 text-stone-600 font-mono">
+                            <li>• VC Corp & Networking</li>
+                            <li>• Ministry of Labor & Home Affairs</li>
+                            <li>• Korean Association & KOICA</li>
+                            <li>• KOCHAM (10,000+ Firms)</li>
+                        </ul>
                     </div>
-                </div>
-
-                <!-- Graphic Visualization: Korea-Vietnam Connection -->
-                <div class="relative h-[500px] flex items-center justify-center overflow-hidden group">
-                    <img src="./network-map-v2.png" alt="Traditional Map connecting Korea and Vietnam"
-                        class="w-full h-full object-contain mix-blend-multiply opacity-80 group-hover:scale-105 transition-transform duration-1000">
-
-
+                    <div>
+                        <h4
+                            class="font-bold text-sm uppercase tracking-wide mb-6 border-b border-stone-300 pb-2 text-stone-800">
+                            Korea Network</h4>
+                        <ul class="text-sm space-y-3 text-stone-600 font-mono">
+                            <li>• Ministry of Culture (MCST)</li>
+                            <li>• Ministry of Education (MOE)</li>
+                            <li>• Embassy & MBN / Arirang</li>
+                            <li>• Major Chaebols (Conglomerates)</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -627,11 +628,11 @@
         lucide.createIcons();
         gsap.registerPlugin(ScrollTrigger);
 
-        // Animations
+        // Simple Staggered Fade Up for Hero
         gsap.from("h1 span", {
             y: 50,
             opacity: 0,
-            duration: 1,
+            duration: 1.2,
             stagger: 0.2,
             ease: "power3.out",
             delay: 0.5
