@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>K-Drama Cafe & BBQ | Hanoi's Seoul Connection</title>
+    <title>K-Drama Cafe & Beer | Hanoi's Seoul Connection</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link
@@ -176,27 +176,59 @@
     <header
         class="fixed top-0 w-full z-40 bg-k-wood-50/80 backdrop-blur-md border-b border-stone-200/60 transition-all duration-300">
         <div class="max-w-screen-xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="#" class="font-serif text-xl tracking-tight text-k-red-900 flex items-center gap-2 font-bold">
-                K-DRAMA <span class="text-xs font-sans font-normal text-stone-500 uppercase tracking-widest mt-1">Cafe &
-                    BBQ</span>
+            <a href="#"
+                class="font-serif text-xl tracking-tight text-k-red-900 flex items-center gap-2 font-bold shrink-0">
+                K-DRAMA <span
+                    class="hidden sm:inline text-xs font-sans font-normal text-stone-500 uppercase tracking-widest mt-1">Cafe
+                    & Beer</span>
             </a>
 
             <nav class="hidden md:flex items-center gap-8 text-sm tracking-wide text-stone-600 font-medium">
                 <a href="#story" class="hover:text-k-red-900 transition-colors">Our Story</a>
                 <a href="#day-menu" class="hover:text-k-red-900 transition-colors">Cafe (Day)</a>
-                <a href="#night-menu" class="hover:text-k-red-900 transition-colors">BBQ (Night)</a>
+                <a href="#night-menu" class="hover:text-k-red-900 transition-colors">Beer (Night)</a>
                 <a href="#reviews" class="hover:text-k-red-900 transition-colors">Reviews</a>
             </nav>
 
-            <a href="#locations"
-                class="bg-k-red-900 text-stone-50 text-xs font-medium tracking-wide px-5 py-2.5 rounded-md hover:bg-k-red-800 transition-colors duration-300 shadow-sm flex items-center gap-2">
-                <span class="relative flex h-2 w-2">
-                    <span
-                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-                </span>
-                Reserve Table
-            </a>
+            <div class="flex items-center gap-4">
+                <a href="#locations"
+                    class="hidden min-[400px]:flex bg-k-red-900 text-stone-50 text-[10px] sm:text-xs font-medium tracking-wide px-3 sm:px-5 py-2 sm:py-2.5 rounded-md hover:bg-k-red-800 transition-colors duration-300 shadow-sm items-center gap-2">
+                    <span class="relative flex h-2 w-2">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                    </span>
+                    Reserve
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-stone-600 hover:text-k-red-900">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Side Menu Overlay -->
+        <div id="mobile-menu-overlay"
+            class="fixed inset-0 bg-black/50 z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+        <!-- Mobile Side Menu -->
+        <div id="mobile-side-menu"
+            class="fixed top-0 right-0 h-full w-[280px] bg-k-wood-50 z-[60] translate-x-full transition-transform duration-300 ease-in-out shadow-2xl p-8">
+            <div class="flex justify-between items-center mb-12">
+                <span class="font-serif text-xl text-k-red-900 font-bold">K-DRAMA</span>
+                <button id="close-menu-btn" class="p-2 text-stone-500">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <nav class="flex flex-col gap-6 text-lg font-medium text-stone-800">
+                <a href="#story" class="hover:text-k-red-900 transition-colors">Our Story</a>
+                <a href="#day-menu" class="hover:text-k-red-900 transition-colors">Cafe (Day)</a>
+                <a href="#night-menu" class="hover:text-k-red-900 transition-colors">Beer (Night)</a>
+                <a href="#reviews" class="hover:text-k-red-900 transition-colors">Reviews</a>
+                <a href="#locations"
+                    class="mt-4 bg-k-red-900 text-white px-6 py-3 rounded-md text-center inline-block">Reserve Table</a>
+            </nav>
         </div>
     </header>
 
@@ -208,8 +240,8 @@
         </div>
         <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
             <h1
-                class="font-display font-light text-6xl md:text-8xl text-white mb-8 tracking-tight leading-none drop-shadow-2xl">
-                K-Drama <span class="italic font-serif text-k-red-400">Cafe & BBQ</span>
+                class="font-display font-light text-5xl sm:text-6xl md:text-8xl text-white mb-8 tracking-tight leading-tight md:leading-none drop-shadow-2xl">
+                K-Drama <span class="italic font-serif text-k-red-400">Cafe & Beer</span>
             </h1>
             <p class="text-xl md:text-2xl text-stone-200 font-light tracking-wide mb-10 max-w-2xl mx-auto">
                 From morning coffee to late-night seafood boil.<br>
@@ -219,14 +251,6 @@
                 <a href="#menu"
                     class="px-8 py-4 bg-k-red-700 hover:bg-k-red-600 text-white rounded-full font-medium transition-all hover:scale-105 shadow-[0_0_20px_rgba(220,38,38,0.4)]">
                     View Menu
-                </a>
-                <a href="https://www.facebook.com/people/k-drama/61573727188826/?mibextid=wwXIfr" target="_blank"
-                    class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-medium transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] flex items-center justify-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                        fill="currentColor" class="w-5 h-5">
-                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                    </svg>
-                    Facebook
                 </a>
             </div>
         </div>
@@ -884,7 +908,7 @@
                 K-DRAMA
             </a>
             <div class="text-xs text-stone-400">
-                &copy; 2026 K-Drama Cafe & BBQ Hanoi. All rights reserved.
+                &copy; 2026 K-Drama Cafe & Beer Hanoi. All rights reserved.
             </div>
             <div class="flex gap-4">
                 <a href="#" class="text-stone-400 hover:text-k-red-900 transition-colors"><svg
@@ -895,7 +919,8 @@
                         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                         <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
                     </svg></a>
-                <a href="#" class="text-stone-400 hover:text-k-red-900 transition-colors"><svg
+                <a href="https://www.facebook.com/people/k-drama/61573727188826/?mibextid=wwXIfr" target="_blank"
+                    class="text-stone-400 hover:text-k-red-900 transition-colors"><svg
                         xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="lucide lucide-facebook">
@@ -927,6 +952,32 @@
         window.addEventListener('scroll', revealOnScroll);
         // Trigger once on load
         revealOnScroll();
+
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileSideMenu = document.getElementById('mobile-side-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const menuLinks = mobileSideMenu.querySelectorAll('a');
+
+        function toggleMenu() {
+            mobileSideMenu.classList.toggle('translate-x-full');
+            mobileMenuOverlay.classList.toggle('opacity-0');
+            mobileMenuOverlay.classList.toggle('pointer-events-none');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', toggleMenu);
+        if (closeMenuBtn) closeMenuBtn.addEventListener('click', toggleMenu);
+        if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', toggleMenu);
+
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileSideMenu.classList.contains('translate-x-full')) {
+                    toggleMenu();
+                }
+            });
+        });
     </script>
 </body>
 
