@@ -78,8 +78,35 @@
             mix-blend-mode: multiply;
         }
 
-        .vertical-text {
-            writing-mode: vertical-rl;
+        /* Sidebar Active State */
+        .nav-link.active {
+            background-color: #1c1917;
+            /* Stone 900 */
+            color: #f5f5f4;
+            /* Stone 100 */
+        }
+
+        .nav-link.active svg {
+            color: #f5f5f4;
+        }
+
+        /* Marquee Animation */
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animate-marquee {
+            animation: marquee 60s linear infinite;
+        }
+
+        .animate-marquee:hover {
+            animation-play-state: paused;
         }
     </style>
 </head>
@@ -104,13 +131,10 @@
         <!-- Nav Items -->
         <nav class="flex flex-col gap-8 w-full items-center">
             <!-- Philosophy -->
-            <a href="#philosophy" class="group relative p-3 rounded-xl hover:bg-stone-200 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                    class="w-5 h-5 text-stone-600 group-hover:text-black">
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-                </svg>
+            <a href="#philosophy" id="nav-philosophy"
+                class="nav-link group relative p-3 rounded-xl hover:bg-stone-200 transition-all duration-300">
+                <i data-lucide="fingerprint"
+                    class="w-5 h-5 text-stone-600 group-hover:text-black transition-colors"></i>
                 <div
                     class="absolute left-14 bg-black text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap z-50 pointer-events-none">
                     Philosophy
@@ -118,12 +142,10 @@
             </a>
 
             <!-- System -->
-            <a href="#system" class="group relative p-3 rounded-xl hover:bg-stone-200 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                    class="w-5 h-5 text-stone-600 group-hover:text-black">
-                    <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-                </svg>
+            <a href="#system" id="nav-system"
+                class="nav-link group relative p-3 rounded-xl hover:bg-stone-200 transition-all duration-300">
+                <i data-lucide="graduation-cap"
+                    class="w-5 h-5 text-stone-600 group-hover:text-black transition-colors"></i>
                 <div
                     class="absolute left-14 bg-black text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap z-50 pointer-events-none">
                     Levels
@@ -131,13 +153,9 @@
             </a>
 
             <!-- Portfolio -->
-            <a href="#portfolio" class="group relative p-3 rounded-xl hover:bg-stone-200 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                    class="w-5 h-5 text-stone-600 group-hover:text-black">
-                    <rect width="8" height="18" x="3" y="3" rx="1" />
-                    <rect width="8" height="18" x="13" y="3" rx="1" />
-                </svg>
+            <a href="#portfolio" id="nav-portfolio"
+                class="nav-link group relative p-3 rounded-xl hover:bg-stone-200 transition-all duration-300">
+                <i data-lucide="briefcase" class="w-5 h-5 text-stone-600 group-hover:text-black transition-colors"></i>
                 <div
                     class="absolute left-14 bg-black text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap z-50 pointer-events-none">
                     Portfolio
@@ -145,12 +163,9 @@
             </a>
 
             <!-- History -->
-            <a href="#history" class="group relative p-3 rounded-xl hover:bg-stone-200 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                    class="w-5 h-5 text-stone-600 group-hover:text-black">
-                    <path d="M3 3v18h18" />
-                </svg>
+            <a href="#history" id="nav-history"
+                class="nav-link group relative p-3 rounded-xl hover:bg-stone-200 transition-all duration-300">
+                <i data-lucide="history" class="w-5 h-5 text-stone-600 group-hover:text-black transition-colors"></i>
                 <div
                     class="absolute left-14 bg-black text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap z-50 pointer-events-none">
                     History
@@ -173,10 +188,10 @@
         <!-- 2. Hero Section -->
         <section
             class="relative flex flex-col min-h-screen w-full border-b border-stone-200 bg-stone-100/30 overflow-hidden">
-            <!-- Hero Image Background - Fixed to match PBLK/Reference -->
-            <div class="absolute right-0 top-0 h-full w-1/2 opacity-10 pointer-events-none mix-blend-multiply">
-                <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/6db8c45a-2b6b-4fed-9347-da402489f38f_1600w.jpg"
-                    alt="Moonlit dunes" class="h-full w-full object-cover filter grayscale contrast-125">
+            <!-- Hero Image Background - Custom Neo K Visual -->
+            <div class="absolute right-0 top-0 h-full w-1/2 opacity-20 pointer-events-none mix-blend-multiply">
+                <img src="./hero-bg-v2.png" alt="Neo K-Culture Abstract"
+                    class="h-full w-full object-cover filter grayscale contrast-125">
                 <div class="absolute inset-0 bg-gradient-to-l from-transparent via-stone-100/50 to-stone-100"></div>
             </div>
 
@@ -229,15 +244,45 @@
             </div>
 
             <!-- Ticker / Quick Stats -->
-            <div class="w-full border-t border-stone-200 bg-white/40 backdrop-blur-md">
-                <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
+            <div class="w-full border-t border-stone-200 bg-white/40 backdrop-blur-md overflow-hidden">
+                <div class="flex whitespace-nowrap py-4 animate-marquee w-fit">
+                    <!-- Content Block 1 -->
                     <div
-                        class="flex gap-8 text-[11px] font-mono uppercase text-stone-500 tracking-widest overflow-x-auto no-scrollbar">
+                        class="flex gap-12 text-[11px] font-mono uppercase text-stone-500 tracking-widest items-center pr-12">
                         <span>Rec. by Dept. of Labor (VN)</span>
                         <span class="text-stone-300">•</span>
                         <span>Rec. by KOCHAM (10,000 Companies)</span>
                         <span class="text-stone-300">•</span>
                         <span>Chair: Former Minister of Culture (Korea)</span>
+                        <span class="text-stone-300">•</span>
+                        <span>Emotional Math (감성수학)</span>
+                        <span class="text-stone-300">•</span>
+                        <span>Emotional Education Co., Ltd. (감성교육)</span>
+                        <span class="text-stone-300">•</span>
+                        <span>King Sejong Institute, Tashkent (Uzbekistan)</span>
+                        <span class="text-stone-300">•</span>
+                        <span>Nam's School, Boston</span>
+                        <span class="text-stone-300">•</span>
+                        <span>Indonesia National University</span>
+                    </div>
+                    <!-- Content Block 2 (Duplicate for Loop) -->
+                    <div
+                        class="flex gap-12 text-[11px] font-mono uppercase text-stone-500 tracking-widest items-center pr-12">
+                        <span>Rec. by Dept. of Labor (VN)</span>
+                        <span class="text-stone-300">•</span>
+                        <span>Rec. by KOCHAM (10,000 Companies)</span>
+                        <span class="text-stone-300">•</span>
+                        <span>Chair: Former Minister of Culture (Korea)</span>
+                        <span class="text-stone-300">•</span>
+                        <span>Emotional Math (감성수학)</span>
+                        <span class="text-stone-300">•</span>
+                        <span>Emotional Education Co., Ltd. (감성교육)</span>
+                        <span class="text-stone-300">•</span>
+                        <span>King Sejong Institute, Tashkent (Uzbekistan)</span>
+                        <span class="text-stone-300">•</span>
+                        <span>Nam's School, Boston</span>
+                        <span class="text-stone-300">•</span>
+                        <span>Indonesia National University</span>
                     </div>
                 </div>
             </div>
@@ -405,11 +450,17 @@
                 <div
                     class="group relative overflow-hidden bg-stone-50 border border-stone-100 h-[400px] flex flex-col p-8 transition-all hover:shadow-lg">
                     <div
-                        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2000&auto=format&fit=crop')] bg-cover opacity-0 group-hover:opacity-10 transition-opacity duration-700 grayscale">
+                        class="absolute inset-0 bg-[url('./portfolio-edu.png')] bg-cover bg-center opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                     </div>
-                    <span class="text-xs font-mono text-stone-400 mb-4 z-10">01</span>
-                    <h3 class="text-2xl font-serif mb-4 z-10">Korean Math & <br>Language Education</h3>
-                    <p class="text-sm text-stone-500 z-10 mt-auto">
+                    <div class="absolute inset-0 bg-white/90 group-hover:bg-white/40 transition-colors duration-700">
+                    </div>
+                    <span
+                        class="text-xs font-mono text-stone-400 mb-4 z-10 group-hover:text-stone-900 transition-colors">01</span>
+                    <h3 class="text-2xl font-serif mb-4 z-10 group-hover:text-stone-900 transition-colors">Korean Math &
+                        <br>Language Education
+                    </h3>
+                    <p
+                        class="text-sm text-stone-500 z-10 mt-auto group-hover:text-stone-800 transition-colors font-medium">
                         Systematic curriculum combining mathematical logic with clear language acquisition. The
                         foundation of Neo K-Culture.
                     </p>
@@ -419,14 +470,16 @@
                 <div
                     class="group relative overflow-hidden bg-stone-900 text-white h-[400px] flex flex-col p-8 transition-all hover:shadow-lg hover:-translate-y-2">
                     <div
-                        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2000&auto=format&fit=crop')] bg-cover opacity-30 mix-blend-overlay">
+                        class="absolute inset-0 bg-[url('./portfolio-culture.png')] bg-cover bg-center opacity-40 group-hover:opacity-100 transition-opacity duration-700 mix-blend-overlay group-hover:mix-blend-normal">
+                    </div>
+                    <div class="absolute inset-0 bg-black/60 group-hover:bg-black/30 transition-colors duration-700">
                     </div>
                     <span class="text-xs font-mono text-stone-400 mb-4 z-10">02</span>
                     <h3 class="text-2xl font-serif mb-4 z-10">K-Culture Experience</h3>
-                    <p class="text-sm text-stone-300 z-10 mt-auto mb-4">
+                    <p class="text-sm text-stone-300 z-10 mt-auto mb-4 group-hover:text-white font-medium">
                         A complex cultural space.
                     </p>
-                    <ul class="text-xs text-stone-400 z-10 space-y-2 font-mono">
+                    <ul class="text-xs text-stone-400 z-10 space-y-2 font-mono group-hover:text-stone-200">
                         <li>• Day: Traditional Tea & Exhibitions</li>
                         <li>• Night: Dining, Spirits & Performance</li>
                     </ul>
@@ -436,11 +489,17 @@
                 <div
                     class="group relative overflow-hidden bg-stone-50 border border-stone-100 h-[400px] flex flex-col p-8 transition-all hover:shadow-lg">
                     <div
-                        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=2000&auto=format&fit=crop')] bg-cover opacity-0 group-hover:opacity-10 transition-opacity duration-700 grayscale">
+                        class="absolute inset-0 bg-[url('./portfolio-exhibition.png')] bg-cover bg-center opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                     </div>
-                    <span class="text-xs font-mono text-stone-400 mb-4 z-10">03</span>
-                    <h3 class="text-2xl font-serif mb-4 z-10">Events & <br>Exhibitions</h3>
-                    <p class="text-sm text-stone-500 z-10 mt-auto">
+                    <div class="absolute inset-0 bg-white/90 group-hover:bg-white/40 transition-colors duration-700">
+                    </div>
+                    <span
+                        class="text-xs font-mono text-stone-400 mb-4 z-10 group-hover:text-stone-800 transition-colors">03</span>
+                    <h3 class="text-2xl font-serif mb-4 z-10 group-hover:text-stone-900 transition-colors">Events &
+                        <br>Exhibitions
+                    </h3>
+                    <p
+                        class="text-sm text-stone-500 z-10 mt-auto group-hover:text-stone-900 transition-colors font-medium">
                         Connecting markets. Introducing superior Korean products to Vietnam, and showcasing Vietnam's
                         finest in Korea.
                     </p>
@@ -487,27 +546,12 @@
                     </div>
                 </div>
 
-                <!-- Graphic Visualization Placeholder -->
-                <div
-                    class="relative h-[400px] bg-white p-8 border border-stone-200 rounded-2xl shadow-xl flex items-center justify-center overflow-hidden">
-                    <!-- Stylized Map Connection -->
-                    <div
-                        class="absolute inset-0 opacity-10 bg-[url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg')] bg-cover bg-center">
-                    </div>
-                    <div class="relative z-10 flex items-center gap-8">
-                        <div
-                            class="w-24 h-24 rounded-full bg-stone-100 border-2 border-stone-900 flex items-center justify-center font-serif text-xl font-bold shadow-lg">
-                            KR</div>
-                        <div class="h-[2px] w-24 bg-stone-300 relative">
-                            <div class="absolute -top-1.5 left-1/2 -ml-1.5 w-3 h-3 bg-stone-900 rotate-45"></div>
-                        </div>
-                        <div
-                            class="w-24 h-24 rounded-full bg-stone-100 border-2 border-stone-900 flex items-center justify-center font-serif text-xl font-bold shadow-lg">
-                            VN</div>
-                    </div>
-                    <div class="absolute bottom-8 text-[10px] font-mono uppercase tracking-widest text-stone-400">
-                        Bridged by Neo K-Cultures
-                    </div>
+                <!-- Graphic Visualization: Korea-Vietnam Connection -->
+                <div class="relative h-[500px] flex items-center justify-center overflow-hidden group">
+                    <img src="./network-map-v2.png" alt="Traditional Map connecting Korea and Vietnam"
+                        class="w-full h-full object-contain mix-blend-multiply opacity-80 group-hover:scale-105 transition-transform duration-1000">
+
+
                 </div>
             </div>
         </section>
@@ -522,13 +566,14 @@
                         <span
                             class="absolute -left-[37px] top-1 w-3 h-3 bg-stone-600 rounded-full border-2 border-stone-900"></span>
                         <span class="text-xs font-mono text-stone-500 mb-1 block">July 2017</span>
-                        <h4 class="text-lg text-white font-medium">Launch of Emotional Math</h4>
+                        <h4 class="text-lg text-white font-medium">Launch of Emotional Math (감성수학)</h4>
                     </div>
                     <div class="relative">
                         <span
                             class="absolute -left-[37px] top-1 w-3 h-3 bg-stone-600 rounded-full border-2 border-stone-900"></span>
                         <span class="text-xs font-mono text-stone-500 mb-1 block">2020</span>
-                        <h4 class="text-lg text-white font-medium">Establishment of Emotional Education Co., Ltd.</h4>
+                        <h4 class="text-lg text-white font-medium">Establishment of Emotional Education Co., Ltd. (감성교육)
+                        </h4>
                     </div>
                     <div class="relative">
                         <span
@@ -546,7 +591,7 @@
                     <div class="relative">
                         <span
                             class="absolute -left-[37px] top-1 w-3 h-3 bg-emerald-500 rounded-full border-2 border-stone-900 shadow-[0_0_10px_rgba(16,185,129,0.5)]"></span>
-                        <span class="text-xs font-mono text-emerald-400 mb-1 block">Upcoming - Oct 2025</span>
+                        <span class="text-xs font-mono text-emerald-400 mb-1 block">Oct 2025</span>
                         <h4 class="text-lg text-emerald-400 font-medium">MOU with Indonesia National University & 1st
                             TOMIC Exam</h4>
                     </div>
@@ -558,7 +603,7 @@
         <footer class="bg-stone-950 text-stone-500 py-16 px-12 lg:px-24 border-t border-stone-900">
             <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <div class="text-2xl font-serif text-white mb-4">TOMIC</div>
+                    <div class="text-2xl font-serif text-white mb-4">NEO K</div>
                     <p class="text-xs max-w-sm leading-relaxed mb-6">
                         We make slow change with K-life style.
                         <br>
@@ -568,10 +613,10 @@
                         © 2026 Neo K-Cultures. All rights reserved.
                     </div>
                 </div>
-                <div class="flex justify-end gap-8">
+                <div class="flex justify-end gap-8 text-xs font-mono uppercase tracking-widest">
                     <a href="#" class="hover:text-white transition-colors">Contact</a>
-                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
-                    <a href="#" class="hover:text-white transition-colors">Partnership</a>
+                    <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                    <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
                 </div>
             </div>
         </footer>
@@ -607,9 +652,10 @@
             ease: "power3.out"
         });
 
-        // Section Reveal
+        // Section Reveal & Sidebar Highlight
         const sections = document.querySelectorAll("section");
         sections.forEach(section => {
+            // Reveal animation
             gsap.fromTo(section.children,
                 { y: 30, opacity: 0 },
                 {
@@ -623,6 +669,23 @@
                     }
                 }
             );
+
+            // Active Link Highlighting
+            const id = section.getAttribute("id");
+            if (id) {
+                ScrollTrigger.create({
+                    trigger: section,
+                    start: "top 50%",
+                    end: "bottom 50%",
+                    onToggle: self => {
+                        const link = document.getElementById(`nav-${id}`);
+                        if (link) {
+                            if (self.isActive) link.classList.add("active");
+                            else link.classList.remove("active");
+                        }
+                    }
+                });
+            }
         });
     </script>
 </body>
