@@ -137,6 +137,31 @@
         .reveal-delay-4 {
             transition-delay: 0.4s;
         }
+
+        /* Review text truncation */
+        .review-text {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .review-text.expanded {
+            -webkit-line-clamp: unset;
+            display: block;
+        }
+
+        .view-more-btn {
+            color: #9f1239;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            margin-top: 4px;
+        }
+
+        .view-more-btn:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -445,7 +470,7 @@
 
                     <!-- Review Card: Hiền Vũ (Detailed) -->
                     <div
-                        class="min-w-[300px] md:min-w-[350px] bg-stone-50 border border-stone-100 p-6 rounded-xl snap-center flex flex-col">
+                        class="min-w-[300px] md:min-w-[350px] bg-stone-50 border border-stone-100 p-6 rounded-xl snap-center">
                         <div class="flex items-center gap-3 mb-3">
                             <div
                                 class="w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center text-stone-700 font-bold text-xs">
@@ -458,7 +483,7 @@
                                 class="w-4 h-4 ml-auto opacity-50">
                         </div>
                         <div class="flex text-yellow-400 text-xs mb-3">★★★★★</div>
-                        <p class="text-sm text-stone-600 leading-relaxed italic flex-grow">
+                        <p class="text-sm text-stone-600 leading-relaxed italic review-text">
                             "I was so surprised when I came here; it was so cozy inside... The staff were enthusiastic
                             and often gave me complimentary food... The female servers wore super cute ao dai... It's a
                             place that left a deep impression on me 😊"
@@ -475,7 +500,7 @@
 
                     <!-- Review Card: Mr. Wilson -->
                     <div
-                        class="min-w-[300px] md:min-w-[350px] bg-stone-50 border border-stone-100 p-6 rounded-xl snap-center flex flex-col">
+                        class="min-w-[300px] md:min-w-[350px] bg-stone-50 border border-stone-100 p-6 rounded-xl snap-center">
                         <div class="flex items-center gap-3 mb-3">
                             <div
                                 class="w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center text-stone-700 font-bold text-xs">
@@ -488,7 +513,7 @@
                                 class="w-4 h-4 ml-auto opacity-50">
                         </div>
                         <div class="flex text-yellow-400 text-xs mb-3">★★★★★</div>
-                        <p class="text-sm text-stone-600 leading-relaxed italic flex-grow">
+                        <p class="text-sm text-stone-600 leading-relaxed italic review-text">
                             "Best waffle in all of Hanoi! Awesome drinks, good prices."
                         </p>
                         <div class="mt-3 flex gap-2 text-[10px] text-stone-400">
@@ -498,7 +523,7 @@
 
                     <!-- Review Card: Min-young Lee -->
                     <div
-                        class="min-w-[300px] md:min-w-[350px] bg-stone-50 border border-stone-100 p-6 rounded-xl snap-center flex flex-col">
+                        class="min-w-[300px] md:min-w-[350px] bg-stone-50 border border-stone-100 p-6 rounded-xl snap-center">
                         <div class="flex items-center gap-3 mb-3">
                             <div
                                 class="w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center text-stone-700 font-bold text-xs">
@@ -511,7 +536,7 @@
                                 class="w-4 h-4 ml-auto opacity-50">
                         </div>
                         <div class="flex text-yellow-400 text-xs mb-3">★★★★★</div>
-                        <p class="text-sm text-stone-600 leading-relaxed italic flex-grow">
+                        <p class="text-sm text-stone-600 leading-relaxed italic review-text">
                             "The unique concept creates a unique atmosphere. It seems like a lot of thought went into
                             promoting Korean culture in Vietnam! The mango smoothie is also delicious. We had a great
                             time with the family!"
@@ -523,7 +548,7 @@
 
                     <!-- Review Card: Baekbal Sonyeon -->
                     <div
-                        class="min-w-[300px] md:min-w-[350px] bg-stone-50 border border-stone-100 p-6 rounded-xl snap-center flex flex-col">
+                        class="min-w-[300px] md:min-w-[350px] bg-stone-50 border border-stone-100 p-6 rounded-xl snap-center">
                         <div class="flex items-center gap-3 mb-3">
                             <div
                                 class="w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center text-stone-700 font-bold text-xs">
@@ -536,7 +561,7 @@
                                 class="w-4 h-4 ml-auto opacity-50">
                         </div>
                         <div class="flex text-yellow-400 text-xs mb-3">★★★★★</div>
-                        <p class="text-sm text-stone-600 leading-relaxed italic flex-grow">
+                        <p class="text-sm text-stone-600 leading-relaxed italic review-text">
                             "I chose Vietnamese coffee because of the title... it was a stroke of genius. The
                             high-quality beans are satisfying. I think it will be popular not only with Korean tourists
                             but also with young locals seeking out K-culture."
@@ -548,7 +573,7 @@
 
                     <!-- Review Card: JaelanR Wilson -->
                     <div
-                        class="min-w-[300px] md:min-w-[350px] bg-stone-50 border border-stone-100 p-6 rounded-xl snap-center flex flex-col">
+                        class="min-w-[300px] md:min-w-[350px] bg-stone-50 border border-stone-100 p-6 rounded-xl snap-center">
                         <div class="flex items-center gap-3 mb-3">
                             <div
                                 class="w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center text-stone-700 font-bold text-xs">
@@ -561,7 +586,7 @@
                                 class="w-4 h-4 ml-auto opacity-50">
                         </div>
                         <div class="flex text-yellow-400 text-xs mb-3">★★★★★</div>
-                        <p class="text-sm text-stone-600 leading-relaxed italic flex-grow">
+                        <p class="text-sm text-stone-600 leading-relaxed italic review-text">
                             "Staff is amazing. The waffle is amazing. The smoothies are amazing. 10/10 cute place."
                         </p>
                         <div class="mt-3 flex gap-2 text-[10px] text-stone-400">
@@ -571,7 +596,7 @@
 
                     <!-- Review Card: Alfie -->
                     <div
-                        class="min-w-[300px] md:min-w-[350px] bg-stone-50 border border-stone-100 p-6 rounded-xl snap-center flex flex-col">
+                        class="min-w-[300px] md:min-w-[350px] bg-stone-50 border border-stone-100 p-6 rounded-xl snap-center">
                         <div class="flex items-center gap-3 mb-3">
                             <div
                                 class="w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center text-stone-700 font-bold text-xs">
@@ -584,7 +609,7 @@
                                 class="w-4 h-4 ml-auto opacity-50">
                         </div>
                         <div class="flex text-yellow-400 text-xs mb-3">★★★★★</div>
-                        <p class="text-sm text-stone-600 leading-relaxed italic flex-grow">
+                        <p class="text-sm text-stone-600 leading-relaxed italic review-text">
                             "Very good!! Delicious foods and nice staff"
                         </p>
                         <div class="mt-3 flex gap-2 text-[10px] text-stone-400">
@@ -594,7 +619,7 @@
 
                     <!-- Review Card: Song Sang-min -->
                     <div
-                        class="min-w-[300px] md:min-w-[350px] bg-stone-50 border border-stone-100 p-6 rounded-xl snap-center flex flex-col">
+                        class="min-w-[300px] md:min-w-[350px] bg-stone-50 border border-stone-100 p-6 rounded-xl snap-center">
                         <div class="flex items-center gap-3 mb-3">
                             <div
                                 class="w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center text-stone-700 font-bold text-xs">
@@ -607,7 +632,7 @@
                                 class="w-4 h-4 ml-auto opacity-50">
                         </div>
                         <div class="flex text-yellow-400 text-xs mb-3">★★★★★</div>
-                        <p class="text-sm text-stone-600 leading-relaxed italic flex-grow">
+                        <p class="text-sm text-stone-600 leading-relaxed italic review-text">
                             "It's unique and has a Korean Seongsu-dong feel. Each one is so kind."
                         </p>
                         <div class="mt-3 flex gap-2 text-[10px] text-stone-400">
@@ -617,7 +642,7 @@
 
                     <!-- Review Card: Huyen Tuong -->
                     <div
-                        class="min-w-[300px] md:min-w-[350px] bg-stone-50 border border-stone-100 p-6 rounded-xl snap-center flex flex-col">
+                        class="min-w-[300px] md:min-w-[350px] bg-stone-50 border border-stone-100 p-6 rounded-xl snap-center">
                         <div class="flex items-center gap-3 mb-3">
                             <div
                                 class="w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center text-stone-700 font-bold text-xs">
@@ -630,7 +655,7 @@
                                 class="w-4 h-4 ml-auto opacity-50">
                         </div>
                         <div class="flex text-yellow-400 text-xs mb-3">★★★★★</div>
-                        <p class="text-sm text-stone-600 leading-relaxed italic flex-grow">
+                        <p class="text-sm text-stone-600 leading-relaxed italic review-text">
                             "Delicious drinks. ESPECIALLY the Mango smoothie. Quiet, chill space"
                         </p>
                         <div class="mt-3 flex gap-2 text-[10px] text-stone-400">
@@ -640,7 +665,7 @@
 
                     <!-- Review Card: Julie F. -->
                     <div
-                        class="min-w-[300px] md:min-w-[350px] bg-stone-50 border border-stone-100 p-6 rounded-xl snap-center flex flex-col">
+                        class="min-w-[300px] md:min-w-[350px] bg-stone-50 border border-stone-100 p-6 rounded-xl snap-center">
                         <div class="flex items-center gap-3 mb-3">
                             <div
                                 class="w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center text-stone-700 font-bold text-xs">
@@ -653,7 +678,7 @@
                                 class="w-4 h-4 ml-auto opacity-50">
                         </div>
                         <div class="flex text-yellow-400 text-xs mb-3">★★★★★</div>
-                        <p class="text-sm text-stone-600 leading-relaxed italic flex-grow">
+                        <p class="text-sm text-stone-600 leading-relaxed italic review-text">
                             "The waffles are incredible"
                         </p>
                         <div class="mt-3 flex gap-2 text-[10px] text-stone-400">
@@ -663,7 +688,7 @@
 
                     <!-- Review Card: Briget -->
                     <div
-                        class="min-w-[300px] md:min-w-[350px] bg-stone-50 border border-stone-100 p-6 rounded-xl snap-center flex flex-col">
+                        class="min-w-[300px] md:min-w-[350px] bg-stone-50 border border-stone-100 p-6 rounded-xl snap-center">
                         <div class="flex items-center gap-3 mb-3">
                             <div
                                 class="w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center text-stone-700 font-bold text-xs">
@@ -676,7 +701,7 @@
                                 class="w-4 h-4 ml-auto opacity-50">
                         </div>
                         <div class="flex text-yellow-400 text-xs mb-3">★★★★★</div>
-                        <p class="text-sm text-stone-600 leading-relaxed italic flex-grow">
+                        <p class="text-sm text-stone-600 leading-relaxed italic review-text">
                             "Perfect host and such a lovely place!!!"
                         </p>
                         <div class="mt-3 flex gap-2 text-[10px] text-stone-400">
@@ -749,6 +774,29 @@
                 // Start auto-scrolls - faster speed (lower number = faster)
                 startAutoScroll(reviewsContainer, 20); // 20ms per px for reviews
                 startAutoScroll(photosContainer, 15); // 15ms per px for photos (faster)
+            })();
+
+            // View More functionality for review text
+            (function () {
+                const reviewTexts = document.querySelectorAll('.review-text');
+                reviewTexts.forEach(text => {
+                    // Check if text is truncated (content height > visible height)
+                    if (text.scrollHeight > text.clientHeight + 5) {
+                        const btn = document.createElement('span');
+                        btn.className = 'view-more-btn';
+                        btn.textContent = 'View more';
+                        btn.onclick = function () {
+                            if (text.classList.contains('expanded')) {
+                                text.classList.remove('expanded');
+                                btn.textContent = 'View more';
+                            } else {
+                                text.classList.add('expanded');
+                                btn.textContent = 'View less';
+                            }
+                        };
+                        text.parentNode.insertBefore(btn, text.nextSibling);
+                    }
+                });
             })();
         </script>
     </section>
